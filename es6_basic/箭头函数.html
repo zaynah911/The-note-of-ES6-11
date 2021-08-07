@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   /*      //箭头函数
+        let fn = (a,b)=>{
+            //这里的this是 指向 window
+            console.log(this)
+            return a+b
+        }
+
+        var d = fn(2,3);
+        console.log(d) */
+
+        //rest参数,用于获取函数的实参，用来代替argumemnts
+        function add(...args){
+            console.log(args.length)
+        }
+        add(1,2,3,4,5)
+
+        function minu(a,b,...args){
+            console.log(a,b,args)
+        }
+        minu(456,123,1,2,3,4,5)
+    </script>
+</body>
+</html>

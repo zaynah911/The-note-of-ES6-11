@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //解构赋值
+        const arr = ["刘德华","邓小平","张学友"]
+        let [a,b,c] = arr
+        console.log(a,b,c)
+
+        //复杂结构
+        let wangfei = {
+            name:"王菲",
+            age:18,
+            songs:["红豆","传奇"],
+            history:{
+                nameF:"李亚鹏",
+                ageF:29
+            }
+        }
+        let {songs:[one],history:{nameF,ageF}} = wangfei
+        let {name} = wangfei
+        console.log(one,nameF,ageF,name)
+
+        //模板字符串   拼接字符串
+        let star = "王宁"
+        let result = `${star}有牙签`
+        console.log(result)
+    </script>
+</body>
+</html>

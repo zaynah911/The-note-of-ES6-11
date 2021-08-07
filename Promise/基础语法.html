@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //resolve   reject 是两个函数，一个是成功函数、一个是失败函数
+        const p = new Promise(function (resolve, reject) {
+            /*  console.log(resolve,reject);
+             let data = "数据库中的用户数据";
+             //console.log()
+             resolve(data); */
+            let err = "数据读取失败";
+            reject(err)
+        })
+
+        //调用promise对象的then方法
+        p.then(function (value) {
+            console.log(value);
+        }, function (reason) {
+            console.log(reason);
+        })
+
+        //then方法链式调用
+        p.then(value => {
+
+        }).then(value => {
+
+        });
+        //catch方法调用、输出错误、console.error直接输出红×;console.warn输出警告
+        p.catch(function(reason){
+            console.error(reason);
+        });
+    </script>
+</body>
+
+</html>

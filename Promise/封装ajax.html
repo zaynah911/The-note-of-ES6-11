@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p = new Promise((resolve,reject)=>{
+            //1.创建对象
+            const xhr = new XMLHttpRequest();
+            //2.初始化
+            xhr.open("GET","https://api.apiopen.top/getJoke");
+            //3.发送
+            xhr.send();
+            //4.绑定事件，处理响应结果
+            xhr.onreadystatechange = function(){
+                //判断
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        //状态码表示成功
+                        resolve(xhr.response);
+                    }else{
+                        //如果失败
+                        reject(xhr.status)
+                    }
+                }
+            }
+        })
+        p.then(function(value){
+            console.log(value)
+        },function(err){
+            console.log("失败状态码："+err)
+        })
+    </script>
+</body>
+</html>

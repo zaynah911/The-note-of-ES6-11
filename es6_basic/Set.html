@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //新的数据结构Set集合，类数据结构
+        let s1 = new Set([1, 2, 5, 6, 6])
+        let s2 = new Set([12, 5, 98, 45, 2])
+
+        //元素个数
+        console.log(s2.size);
+        //添加新的元素
+        s2.add('喜事儿');
+        //删除元素
+        s2.delete('坏事儿');
+        //检测
+        console.log(s2.has('糟心事'));
+        //清空
+        s2.clear();
+        //遍历数据
+        for (let v of s2) {
+            console.log(v);
+        }
+
+        //1. 数组去重 Set集合本身具有去重效果
+
+        //2. 交集
+        let s4 = [...s1].filter(item =>
+            /* if (s2.has(item)) {
+                return true;
+            } else {
+                return false;
+            } */
+            //简写
+            s2.has(item)
+        )
+        //3. 并集
+        let s6 = new Set([...s1, ...s2])
+        //4. 差集  :交集后的取反，拿自己有别人没有的东西
+        let s7 = [...s1].filter(item => {
+            if (s2.has(item)) {
+                return false;
+            } else {
+                return true;
+            }
+        })
+    </script>
+</body>
+
+</html>

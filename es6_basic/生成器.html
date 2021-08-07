@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //模拟获取  用户数据  订单数据  商品数据 
+        //整个流程是1秒1秒完成的、一步一步来属于异步工作
+        function getUsers(){
+            setTimeout(()=>{
+                let data = '用户数据';
+                //调用 next 方法, 并且将数据传入 第二次调用
+                iterator.next(data);
+            }, 1000);
+        }
+        function getOrders(){
+            setTimeout(()=>{
+                let data = '订单数据';
+                iterator.next(data);
+            }, 1000)
+        }
+        function getGoods(){
+            setTimeout(()=>{
+                let data = '商品数据';
+                iterator.next(data);
+            }, 1000)
+        }
+
+        //生成器
+        function * gen(){
+            let users = yield getUsers();
+            console.log(users)
+            let orders = yield getOrders();
+            console.log(orders)
+            let goods = yield getGoods();
+            console.log(goods)
+        }
+        
+        //调用生成器函数
+        let iterator = gen();
+        //第一次调用
+        iterator.next();
+
+    </script>
+</body>
+</html>
